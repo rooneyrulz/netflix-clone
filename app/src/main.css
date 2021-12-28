@@ -1,0 +1,9 @@
+.movie_row__posters {
+  display: flex;
+}
+
+.movie_row__poster {
+  width: 100%;
+  max-width: 100px;
+  object-fit: contain;
+}
