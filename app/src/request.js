@@ -15,42 +15,42 @@ const API_KEY = "5f8dfe431b51d1381f7bf23b6fa39496";
 const API_URI = [
   {
     id: v4(),
-    title: "trending",
-    uri: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-  },
-  {
-    id: v4(),
-    title: "original",
+    title: "Netflix Originals",
     uri: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
   },
   {
     id: v4(),
-    title: "topRated",
+    title: "Trending Now",
+    uri: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+  },
+  {
+    id: v4(),
+    title: "Top Rated",
     uri: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   },
   {
     id: v4(),
-    title: "actionMovies",
+    title: "Action Movies",
     uri: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
   },
   {
     id: v4(),
-    title: "comedyMovies",
+    title: "Comedy Movies",
     uri: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
   },
   {
     id: v4(),
-    title: "horrorMovies",
+    title: "Horror Movies",
     uri: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
   },
   {
     id: v4(),
-    title: "romanceMovies",
+    title: "Romance Movies",
     uri: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   },
   {
     id: v4(),
-    title: "documentaries",
+    title: "Documentaries",
     uri: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
   },
 ];

@@ -1,16 +1,16 @@
 import React from "react";
 import axios from "../axios";
+import request from "../request";
 
-const BASE_URI = "https://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URI = "https://image.tmdb.org/t/p/original";
 
-const MovieRow = ({ title, uri }) => {
+const MovieRow = ({ id, title, uri }) => {
   const [state, setState] = React.useState([]);
   const [error, setError] = React.useState({ status: null, message: null });
 
   const fetchData = React.useCallback(async () => {
     try {
       const { data } = await axios.get(uri);
-      console.log(data.results);
       setState(data?.results || []);
     } catch (error) {
       console.log(error?.message);
@@ -33,8 +33,13 @@ const MovieRow = ({ title, uri }) => {
       <div className='movie_row__posters'>
         {state?.map((poster) => (
           <img
+            key={poster?.id}
             className='movie_row__poster'
-            src={`${BASE_URI}${poster?.poster_path}`}
+            src={`${BASE_IMAGE_URI}${
+              request[0]?.id === id
+                ? poster?.poster_path
+                : poster?.backdrop_path
+            }`}
             alt={poster?.name}
           />
         ))}
