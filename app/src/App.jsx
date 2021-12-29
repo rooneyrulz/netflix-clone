@@ -1,14 +1,17 @@
 import React from "react";
-import MovieRow from "./components/MovieRow";
+import AppHeader from "./components/AppHeader";
 import AppBanner from "./components/AppBanner";
+import MovieRow from "./components/MovieRow";
+import AppFooter from "./components/AppFooter";
 import request from "./request";
 
 const App = () => {
   return (
     <div className='app'>
+      <AppHeader />
       <AppBanner />
       <main>
-        <div className='app__main container'>
+        <div className='app__main'>
           {request?.map((src) => (
             <MovieRow
               key={src.id}
@@ -19,7 +22,7 @@ const App = () => {
           ))}
         </div>
       </main>
-      <footer></footer>
+      <AppFooter />
     </div>
   );
 };
