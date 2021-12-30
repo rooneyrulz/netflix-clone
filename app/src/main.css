@@ -111,11 +111,13 @@
   background-color: #010101;
 }
 
-.movie_row__posters {
+.movie_row__posters__wrapper {
   padding: 20px;
+  text-align: center;
+}
+
+.movie_row__posters {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 0.75rem;
   overflow-y: hidden;
   overflow-x: scroll;

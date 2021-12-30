@@ -64,13 +64,14 @@ const MovieRow = ({ id, title, uri }) => {
       <div className='container'>
         <h2>{title}</h2>
 
-        <div className='movie_row__posters'>
+        <div className='movie_row__posters__wrapper'>
           {loading ? (
             <Loader type='Puff' color='#fff' height={50} width={50} />
           ) : Boolean(error) ? (
             <span className="movie_row__error">{error?.message}</span>
           ) : (
-            state?.map((poster) => (
+            <div className="movie_row__posters"> {
+              state?.map((poster) => (
               <img
                 key={poster?.id}
                 className='movie_row__poster'
@@ -83,6 +84,8 @@ const MovieRow = ({ id, title, uri }) => {
                 alt={poster?.name}
               />
             ))
+            }
+            </div>
           )}
         </div>
         {trailerURI ? (

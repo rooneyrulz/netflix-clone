@@ -6,7 +6,7 @@ const BASE_IMAGE_URI = "https://image.tmdb.org/t/p/original";
 
 const AppBanner = () => {
   const [state, setState] = React.useState({});
-  const [error, setError] = React.useState({ status: null, message: null });
+  const [error, setError] = React.useState(null);
 
   const getRandomInt = (length) => {
     return Math.floor(Math.random() * length);
@@ -16,14 +16,12 @@ const AppBanner = () => {
     try {
       const { data } = await axios.get(request[getRandomInt(request?.length)]?.uri);
       setState(data?.results[getRandomInt(data?.results?.length)] || {});
-      console.log(data?.results[getRandomInt(data?.results?.length)]);
+      setError(null);
     } catch (error) {
-      console.log(error?.message);
-      setError((s) => ({
-        ...s,
+      setError({
         status: 500,
         message: error?.message || "Something went wrong!",
-      }));
+      });
     }
   }, []);
 
